@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="bg-casabella-cream">
         <Navbar />
         <Suspense>
-          <main className="grid grid-cols-main-layout">{children}</main>
+          <main>{children}</main>
         </Suspense>
       </body>
     </html>

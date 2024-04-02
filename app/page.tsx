@@ -1,3 +1,4 @@
+import { FeaturedCollection } from 'components/featured-collection';
 import { Hero } from 'components/hero';
 
 export const runtime = 'edge';
@@ -10,5 +11,10 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <FeaturedCollection collectionHandle="hidden-homepage-featured-items" title="New Arrivals" />
+    </>
+  );
 }

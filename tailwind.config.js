@@ -75,7 +75,7 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       gridTemplateColumns: {
-        'main-layout': '4% 1fr 4%'
+        'container-layout': '4% 1fr 4%'
       },
       fontFamily: {
         sans: ['Rubik', 'sans-serif'],
