@@ -11,7 +11,7 @@ type Props = {
 
 export function Button({ variant = 'default', children, className, href }: Props) {
   const baseClass =
-    'mt-6 rounded-none transition-colors duration-200 cursor-pointer text-lg uppercase';
+    'mt-6 rounded-none transition-colors duration-200 cursor-pointer text-normal md:text-lg uppercase';
   const defaultClass = 'bg-casabella-brown text-white hover:bg-casabella-dark hover:text-grey-100';
   const ghostClass =
     'bg-transparent border border-casabella-brown text-casabella-brown hover:bg-casabella-brown hover:text-white';
