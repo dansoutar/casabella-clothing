@@ -1,6 +1,9 @@
+import { FeaturedBlogPost } from 'components/featured-blog-post';
 import { FeaturedCollection } from 'components/featured-collection';
 import { Hero } from 'components/hero';
 import { MasonryFeatureGrid } from 'components/masonry-feature-grid';
+
+import { getBlogPosts } from 'lib/shopify';
 
 export const runtime = 'edge';
 
@@ -12,6 +15,8 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const post = await getBlogPosts();
+
   return (
     <>
       <Hero />
@@ -57,6 +62,8 @@ export default async function HomePage() {
         collectionHandle="hidden-homepage-featured-items"
         title="Plus clothing"
       />
+
+      <FeaturedBlogPost postData={post} />
     </>
   );
 }

@@ -23,6 +23,9 @@ import {
   getProductRecommendationsQuery,
   getProductsQuery
 } from './queries/product';
+
+import { getBlogPostQuery } from './queries/blog';
+
 import {
   Cart,
   Collection,
@@ -447,4 +450,12 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   }
 
   return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
+}
+
+export async function getBlogPosts(): Promise<any[]> {
+  const res = await shopifyFetch<ShopifyPagesOperation>({
+    query: getBlogPostQuery
+  });
+
+  return removeEdgesAndNodes(res?.body?.data?.blogs);
 }
