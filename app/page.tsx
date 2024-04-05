@@ -63,7 +63,7 @@ export default async function HomePage() {
         title="Plus clothing"
       />
 
-      <FeaturedBlogPost postData={post} />
+      <FeaturedBlogPost className="mt-16" postData={post} />
     </>
   );
 }
