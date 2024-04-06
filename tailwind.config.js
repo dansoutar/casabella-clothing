@@ -24,6 +24,7 @@ module.exports = {
         'casabella-cream': '#F9F5F2',
         'casabella-brown': '#69524E',
         'casabella-offwhite': '#FAFAFA',
+        'casabella-dark-grey': '#686868',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
