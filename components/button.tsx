@@ -7,9 +7,10 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  type?: 'button' | 'submit' | 'reset';
 };
 
-export function Button({ variant = 'default', children, className, href }: Props) {
+export function Button({ variant = 'default', children, className, href, type, ...props }: Props) {
   const baseClass =
     'mt-6 rounded-none transition-colors duration-200 cursor-pointer text-normal md:text-lg uppercase';
   const defaultClass = 'bg-casabella-brown text-white hover:bg-casabella-dark hover:text-grey-100';
@@ -26,17 +27,25 @@ export function Button({ variant = 'default', children, className, href }: Props
     if (isExternal) {
       return (
         <Link href={href} target="_blank" rel="noopener noreferrer">
-          <RadixButton className={buttonClass}>{children}</RadixButton>
+          <RadixButton type={type} className={buttonClass} {...props}>
+            {children}
+          </RadixButton>
         </Link>
       );
     }
 
     return (
       <Link href={href}>
-        <RadixButton className={buttonClass}>{children}</RadixButton>
+        <RadixButton type={type} className={buttonClass} {...props}>
+          {children}
+        </RadixButton>
       </Link>
     );
   }
 
-  return <RadixButton className={buttonClass}>{children}</RadixButton>;
+  return (
+    <RadixButton type={type} className={buttonClass} {...props}>
+      {children}
+    </RadixButton>
+  );
 }
