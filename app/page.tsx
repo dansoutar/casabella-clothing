@@ -2,6 +2,7 @@ import { FeaturedBlogPost } from 'components/featured-blog-post';
 import { FeaturedCollection } from 'components/featured-collection';
 import { Hero } from 'components/hero';
 import { MasonryFeatureGrid } from 'components/masonry-feature-grid';
+import { NewsletterSignup } from 'components/newsletter-signup';
 
 import { getBlogPosts } from 'lib/shopify';
 
@@ -64,6 +65,7 @@ export default async function HomePage() {
       />
 
       <FeaturedBlogPost className="mt-16" postData={post} />
+      <NewsletterSignup />
     </>
   );
 }
