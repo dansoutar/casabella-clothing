@@ -7,14 +7,14 @@ import { Bellefair, Rubik } from 'next/font/google';
 
 import Footer from 'components/layout/footer';
 
-export const rubik = Rubik({
+const rubik = Rubik({
   subsets: ['latin'],
   display: 'swap',
   weight: ['300', '400', '700'],
   variable: '--font-rubik'
 });
 
-export const bellefair = Bellefair({
+const bellefair = Bellefair({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400'],
