@@ -5,6 +5,8 @@ import './globals.css';
 
 import { Bellefair, Rubik } from 'next/font/google';
 
+import Footer from 'components/layout/footer';
+
 export const rubik = Rubik({
   subsets: ['latin'],
   display: 'swap',
@@ -54,6 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <Suspense>
           <main>{children}</main>
         </Suspense>
+        <Footer />
       </body>
     </html>
   );

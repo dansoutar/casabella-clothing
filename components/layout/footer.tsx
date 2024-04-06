@@ -1,69 +1,77 @@
-import Link from 'next/link';
-
-import FooterMenu from 'components/layout/footer-menu';
-import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
-import { Suspense } from 'react';
-
-const { COMPANY_NAME, SITE_NAME } = process.env;
+import { Container } from 'components/container';
+import { FacebookIcon, InstagramIcon, PinterestIcon, XIcon } from 'components/icons/social-media';
 
 export default async function Footer() {
-  const currentYear = new Date().getFullYear();
-  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
-  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
-  const copyrightName = COMPANY_NAME || SITE_NAME || '';
+  // const menu = await getMenu('footer');
 
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 border-t border-neutral-200 px-6 py-12 text-sm dark:border-neutral-700 md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0">
-        <div>
-          <Link className="flex items-center gap-2 text-black dark:text-white md:pt-1" href="/">
-            <LogoSquare size="sm" />
-            <span className="uppercase">{SITE_NAME}</span>
-          </Link>
-        </div>
-        <Suspense
-          fallback={
-            <div className="flex h-[188px] w-[200px] flex-col gap-2">
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
-              <div className={skeleton} />
+    <Container>
+      <footer className="border-t border-casabella-brown bg-casabella-cream text-casabella-brown">
+        <div className="mx-auto max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4 xl:gap-8">
+            <div className="space-y-4">
+              <h2 className="text-sm md:text-lg">CUSTOMER SERVICES</h2>
+              <ul className="space-y-2 text-xs md:text-base">
+                <li>FAQ</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>Terms & Conditions</li>
+              </ul>
             </div>
-          }
-        >
-          <FooterMenu menu={menu} />
-        </Suspense>
-        <div className="md:ml-auto">
-          <a
-            className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
-            aria-label="Deploy on Vercel"
-            href="https://vercel.com/templates/next.js/nextjs-commerce"
-          >
-            <span className="px-3">▲</span>
-            <hr className="h-full border-r border-neutral-200 dark:border-neutral-700" />
-            <span className="px-3">Deploy</span>
-          </a>
+            <div className="space-y-4">
+              <h2 className="text-sm md:text-lg">SOCIAL MEDIA</h2>
+              <ul className="space-y-2 text-xs md:text-base">
+                <li className="flex items-center gap-2">
+                  <span>
+                    <FacebookIcon className="w-5" />
+                  </span>
+                  <span>Facebook</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>
+                    <InstagramIcon className="w-5" />
+                  </span>
+                  <span>Instagram</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>
+                    <XIcon className="w-5" />
+                  </span>
+                  <span>Twitter</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>
+                    <PinterestIcon className="w-5" />
+                  </span>
+                  <span>Pinterest</span>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h2 className="text-sm md:text-lg">PROFILE</h2>
+              <ul className="space-y-2 text-xs md:text-base">
+                <li>My Account</li>
+                <li>Checkout</li>
+                <li>Order Tracking</li>
+                <li>Help & Support</li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h2 className="text-sm md:text-lg">CONTACT US</h2>
+              <ul className="space-y-2 text-xs md:text-base">
+                <li>Phone: 226-346-7940</li>
+                <li>Email: hello@casabellaclothingboutique.ca</li>
+                <li>Address: 107 Erie street north suite 2 Leamington Ontario n8h3a1</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-4">
+            <p className="text-xs tracking-wide text-gray-400">
+              ©CASABELLA CLOTHING BOUTIQUE INC. SITE MAINTENANCE BY COWLICK STUDIOS
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
-          <p>
-            &copy; {copyrightDate} {copyrightName}
-            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
-          </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
-          <p>Designed in California</p>
-          <p className="md:ml-auto">
-            <a href="https://vercel.com" className="text-black dark:text-white">
-              Crafted by ▲ Vercel
-            </a>
-          </p>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </Container>
   );
 }
