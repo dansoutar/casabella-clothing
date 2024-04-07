@@ -34,7 +34,7 @@ export default async function HomePage() {
           title="DRESSES"
           subtitle="#maxi, midi, cocktail, skater..."
           image="/dress.jpg"
-          href="/collections/frontpage"
+          href="/search/frontpage"
         />
         <MasonryFeatureGrid.Card
           className="col-span-12 lg:col-span-7 lg:row-span-1"

@@ -4,6 +4,7 @@ type Props = {
   children: React.ReactNode;
   isFullWidth?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 };
 
 export function Container({ children, className, isFullWidth, ...props }: Props) {
