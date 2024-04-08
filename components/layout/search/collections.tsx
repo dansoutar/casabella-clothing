@@ -1,19 +1,24 @@
 import clsx from 'clsx';
 import { Suspense } from 'react';
 
-import { getCollections } from 'lib/shopify';
+// import { getCollections } from 'lib/shopify';
 import FilterList from './filter';
 
-async function CollectionList() {
-  const collections = await getCollections();
-  return <FilterList list={collections} title="Collections" />;
+async function CollectionList({ collections }: { collections?: any }) {
+  // const collections = await getCollections();
+
+  return (
+    <div>
+      <FilterList list={collections} title="Collections" />
+    </div>
+  );
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';
 const activeAndTitles = 'bg-neutral-800 dark:bg-neutral-300';
 const items = 'bg-neutral-400 dark:bg-neutral-700';
 
-export default function Collections() {
+export default function Collections({ collections }: { collections?: any }) {
   return (
     <Suspense
       fallback={
@@ -31,7 +36,7 @@ export default function Collections() {
         </div>
       }
     >
-      <CollectionList />
+      <CollectionList collections={collections} />
     </Suspense>
   );
 }

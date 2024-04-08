@@ -83,7 +83,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Rubik', 'sans-serif'],
-        serif: ['Bellefair', 'serif']
+        serif: ['Bellefair', 'serif'],
+        oswald: ['var(--font-oswald)']
       }
     }
   },

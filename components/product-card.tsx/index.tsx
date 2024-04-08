@@ -7,7 +7,7 @@ type Props = {
   product: Product;
 };
 
-function formatPrice(amount: string | number): string {
+function formatPrice(amount: string | number) {
   const amountToFormat = typeof amount === 'string' ? parseFloat(amount) : amount;
 
   return new Intl.NumberFormat('en-US', {
@@ -24,9 +24,17 @@ export function ProductCard({ product, ...props }: Props) {
     product.priceRange?.minVariantPrice?.amount < product.priceRange?.maxVariantPrice?.amount;
 
   return (
-    <div {...props}>
-      {isOnSale && <div className="bg-red-500 p-1 text-sm text-white">Sale</div>}
-      {isNew && <div className="bg-green-500 p-1 text-sm text-white">New</div>}
+    <div className="relative" {...props}>
+      {isOnSale && (
+        <div className="absolute left-0 top-4 min-w-[70px] bg-casabella-brown px-4 py-2 text-sm uppercase text-white">
+          Sale
+        </div>
+      )}
+      {isNew && (
+        <div className="absolute left-0 top-4 min-w-[70px] bg-casabella-brown px-4 py-2 text-sm uppercase text-white">
+          New
+        </div>
+      )}
 
       <Image
         src={product.featuredImage?.url}

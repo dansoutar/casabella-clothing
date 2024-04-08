@@ -20,7 +20,7 @@ export default function FilterList({ list, title }: { list: ListItem[]; title?: 
     <>
       <nav>
         {title ? (
-          <h3 className="hidden text-xs text-neutral-500 dark:text-neutral-400 md:block">
+          <h3 className="mb-2 hidden font-oswald uppercase tracking-wide dark:text-neutral-300 md:block">
             {title}
           </h3>
         ) : null}
