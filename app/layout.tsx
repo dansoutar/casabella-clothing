@@ -3,7 +3,7 @@ import { ensureStartsWith } from 'lib/utils';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
-import { Bellefair, Rubik } from 'next/font/google';
+import { Bellefair, Oswald, Rubik } from 'next/font/google';
 
 import Footer from 'components/layout/footer';
 
@@ -19,6 +19,13 @@ const bellefair = Bellefair({
   display: 'swap',
   weight: ['400'],
   variable: '--font-bellefair'
+});
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '700'],
+  variable: '--font-oswald'
 });
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -50,7 +57,10 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${bellefair.variable} ${rubik.variable} font-sans`}>
+    <html
+      lang="en"
+      className={`${bellefair.variable} ${rubik.variable} ${oswald.variable} font-sans`}
+    >
       <body className="bg-casabella-cream">
         <Navbar />
         <Suspense>
